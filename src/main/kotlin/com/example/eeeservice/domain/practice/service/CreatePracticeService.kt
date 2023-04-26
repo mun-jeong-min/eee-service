@@ -5,14 +5,18 @@ import com.example.eeeservice.domain.alarm.domain.repository.AlarmRepository
 import com.example.eeeservice.domain.practice.domain.Practice
 import com.example.eeeservice.domain.practice.domain.category.Category
 import com.example.eeeservice.domain.practice.domain.repository.PracticeRepository
+import com.example.eeeservice.domain.practice.present.dto.CategoryRequest
 import com.example.eeeservice.domain.practice.present.dto.CreatePracticeRequest
+import com.example.eeeservice.domain.question.domain.Question
+import com.example.eeeservice.domain.question.domain.repository.QuestionRepository
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
 @Service
 class CreatePracticeService (
         private val practiceRepository: PracticeRepository,
-        private val alarmRepository: AlarmRepository
+        private val alarmRepository: AlarmRepository,
+        private val questionRepository: QuestionRepository
 ) {
 
     @Transactional
@@ -26,6 +30,15 @@ class CreatePracticeService (
         alarmRepository.save(
                 Alarm(
                         request.content
+                )
+        )
+    }
+
+    @Transactional
+    fun add(request: CategoryRequest) {
+        questionRepository.save(
+                Question(
+                        request.category + "추가해주세요"
                 )
         )
     }
