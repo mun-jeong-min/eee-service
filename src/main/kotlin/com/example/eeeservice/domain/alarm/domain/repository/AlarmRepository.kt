@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface AlarmRepository : CrudRepository<Alarm, Long> {
+    override fun findAll(): List<Alarm>
 }
