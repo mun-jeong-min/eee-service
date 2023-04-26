@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface QuestionRepository : CrudRepository<Question, Long> {
+    override fun findAll(): List<Question>
 }
