@@ -2,6 +2,7 @@ package com.example.eeeservice.domain.practice.present
 
 import com.example.eeeservice.domain.practice.present.dto.CreatePracticeRequest
 import com.example.eeeservice.domain.practice.present.dto.ReadPracticeRequest
+import com.example.eeeservice.domain.practice.present.dto.ReadPracticeResponse
 import com.example.eeeservice.domain.practice.service.CreatePracticeService
 import com.example.eeeservice.domain.practice.service.ReadPracticeService
 import org.springframework.web.bind.annotation.GetMapping
@@ -23,7 +24,7 @@ class PracticeController (
     }
 
     @GetMapping
-    fun read(@RequestBody request: ReadPracticeRequest) {
-        readPracticeService.execute(request)
+    fun read(@RequestBody request: ReadPracticeRequest): ReadPracticeResponse {
+        return readPracticeService.execute(request)
     }
 }
