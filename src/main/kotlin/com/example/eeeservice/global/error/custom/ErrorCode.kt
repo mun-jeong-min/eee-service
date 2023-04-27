@@ -7,5 +7,5 @@ enum class ErrorCode (
         val message: String
 ) {
 
-    EMAIL_NOT_FOUND_EXCEPTION(HttpStatus.NOT_FOUND, "이메일을 찾을 수 없습니다.");
+    USER_NOT_FOUND_EXCEPTION(HttpStatus.NOT_FOUND, "유저를 찾을 수 없습니다.");
 }

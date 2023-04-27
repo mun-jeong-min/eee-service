@@ -10,10 +10,6 @@ class User (
 
         @field:NotNull
         @field:Column(columnDefinition = "VARCHAR(50)")
-        val email: String,
-
-        @field:NotNull
-        @field:Column(columnDefinition = "INT(10)")
-        val authCode: Int
+        val email: String
 
 ) : BaseEntity()
