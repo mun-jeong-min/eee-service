@@ -1,5 +1,6 @@
 package com.example.eeeservice.domain.practice.present
 
+import com.example.eeeservice.domain.practice.present.dto.CategoryRequest
 import com.example.eeeservice.domain.practice.present.dto.CreatePracticeRequest
 import com.example.eeeservice.domain.practice.present.dto.ReadPracticeRequest
 import com.example.eeeservice.domain.practice.present.dto.ReadPracticeResponse
@@ -21,6 +22,11 @@ class PracticeController (
     @PostMapping
     fun create(@RequestBody request: CreatePracticeRequest) {
         createPracticeService.execute(request)
+    }
+
+    @PostMapping("/category")
+    fun add(@RequestBody request: CategoryRequest) {
+        createPracticeService.add(request)
     }
 
     @GetMapping

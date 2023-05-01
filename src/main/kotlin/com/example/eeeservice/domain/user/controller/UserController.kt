@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController
 class UserController (
         private val userAuthService: UserAuthService
 ) {
-
+    
     @PostMapping
     fun get(@RequestBody request: EmailRequest) {
         userAuthService.execute(request)

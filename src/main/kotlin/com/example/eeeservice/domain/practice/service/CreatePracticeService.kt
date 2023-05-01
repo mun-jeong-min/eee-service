@@ -19,28 +19,22 @@ class CreatePracticeService (
         private val practiceRepository: PracticeRepository,
         private val alarmRepository: AlarmRepository,
         private val questionRepository: QuestionRepository,
-        private val sender: JavaMailSender
 ) {
 
     @Transactional
     fun execute(request: CreatePracticeRequest) {
+        val category = Category.valueOf(request.category)
         practiceRepository.save(
                 Practice(
                         content = request.content,
-                        category = Category.valueOf(request.category)
+                        category
                 )
         )
         alarmRepository.save(
                 Alarm(
-                        request.content
+                        "$category 의 행동이 추가되었습니다"
                 )
         )
-        val message = SimpleMailMessage()
-        message.from = "moondeve41@gmail.com"
-        message.setTo("3330kys@dsm.hs.kr")
-        message.subject = "인증코드"
-        message.text = request.content + "운동이 추가되었습니다."
-        sender.send(message)
     }
 
     @Transactional
