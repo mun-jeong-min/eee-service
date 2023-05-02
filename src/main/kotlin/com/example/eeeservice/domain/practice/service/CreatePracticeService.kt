@@ -9,6 +9,7 @@ import com.example.eeeservice.domain.practice.present.dto.CategoryRequest
 import com.example.eeeservice.domain.practice.present.dto.CreatePracticeRequest
 import com.example.eeeservice.domain.question.domain.Question
 import com.example.eeeservice.domain.question.domain.repository.QuestionRepository
+import com.example.eeeservice.domain.user.domain.repository.UserRepository
 import org.springframework.mail.SimpleMailMessage
 import org.springframework.mail.javamail.JavaMailSender
 import org.springframework.stereotype.Service
@@ -19,6 +20,8 @@ class CreatePracticeService (
         private val practiceRepository: PracticeRepository,
         private val alarmRepository: AlarmRepository,
         private val questionRepository: QuestionRepository,
+        private val sender: JavaMailSender,
+        private val userRepository: UserRepository
 ) {
 
     @Transactional
@@ -35,6 +38,16 @@ class CreatePracticeService (
                         "$category 의 행동이 추가되었습니다"
                 )
         )
+
+        userRepository.findAll().stream()
+                .map {
+                    val message = SimpleMailMessage()
+                    message.from = "moondeve41@gmail.com"
+                    message.setTo(it.email)
+                    message.subject = "운동하세요"
+                    message.text = "$category 의 행동이 추가되었습니다"
+                    sender.send(message)
+                }
     }
 
     @Transactional

@@ -29,7 +29,7 @@ class PracticeController (
         createPracticeService.add(request)
     }
 
-    @GetMapping
+    @PostMapping("/read")
     fun read(@RequestBody request: ReadPracticeRequest): ReadPracticeResponse {
         return readPracticeService.execute(request)
     }

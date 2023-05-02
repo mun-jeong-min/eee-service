@@ -35,3 +35,5 @@ out/
 
 ### VS Code ###
 .vscode/
+
+src/test/kotlin/com/example/eeeservice/domain/UserService.kt
