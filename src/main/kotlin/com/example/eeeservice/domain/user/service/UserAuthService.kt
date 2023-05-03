@@ -1,17 +1,15 @@
 package com.example.eeeservice.domain.user.service
 
-import com.example.eeeservice.domain.user.controller.dto.CodeRequest
-import com.example.eeeservice.domain.user.controller.dto.EmailRequest
+import com.example.eeeservice.domain.user.present.dto.CodeRequest
+import com.example.eeeservice.domain.user.present.dto.EmailRequest
 import com.example.eeeservice.domain.user.domain.Code
 import com.example.eeeservice.domain.user.domain.User
 import com.example.eeeservice.domain.user.domain.repository.CodeRepository
 import com.example.eeeservice.domain.user.domain.repository.UserRepository
-import com.example.eeeservice.domain.user.exception.UserNotFoundException
 import org.springframework.mail.SimpleMailMessage
 import org.springframework.mail.javamail.JavaMailSender
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
-import java.util.Random
 
 @Service
 class UserAuthService (

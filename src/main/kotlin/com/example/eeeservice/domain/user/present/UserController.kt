@@ -1,7 +1,7 @@
-package com.example.eeeservice.domain.user.controller
+package com.example.eeeservice.domain.user.present
 
-import com.example.eeeservice.domain.user.controller.dto.CodeRequest
-import com.example.eeeservice.domain.user.controller.dto.EmailRequest
+import com.example.eeeservice.domain.user.present.dto.CodeRequest
+import com.example.eeeservice.domain.user.present.dto.EmailRequest
 import com.example.eeeservice.domain.user.service.UserAuthService
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
