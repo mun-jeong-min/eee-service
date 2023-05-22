@@ -39,16 +39,12 @@ class CreatePracticeService (
                         "$category 의 행동이 추가되었습니다"
                 )
         )
-
-        userRepository.findAll().stream()
-                .map {
-                    val message = SimpleMailMessage()
-                    message.from = "moondeve41@gmail.com"
-                    message.setTo(it.email)
-                    message.subject = "운동하세요 - EEE-SERVICE"
-                    message.text = "$category 의 행동이 추가되었습니다"
-                    sender.send(message)
-                }
+        val message = SimpleMailMessage()
+        message.from = "moondeve41@gmail.com"
+        message.setTo("moondeve41@gmail.com")
+        message.subject = "운동하세요 - EEE-SERVICE"
+        message.text = "$category 의 행동이 추가되었습니다"
+        sender.send(message)
     }
 
     @Transactional

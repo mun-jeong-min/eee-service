@@ -1,6 +1,5 @@
 package com.example.eeeservice.domain.user.domain
 
-import com.example.eeeservice.global.entity.BaseEntity
 import org.springframework.data.annotation.Id
 import org.springframework.data.redis.core.RedisHash
 import org.springframework.data.redis.core.TimeToLive

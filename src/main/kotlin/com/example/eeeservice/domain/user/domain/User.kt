@@ -1,7 +1,9 @@
 package com.example.eeeservice.domain.user.domain
 
 import com.example.eeeservice.global.entity.BaseEntity
-import javax.persistence.*
+import javax.persistence.Column
+import javax.persistence.Entity
+import javax.persistence.Table
 import javax.validation.constraints.NotNull
 
 @Entity
