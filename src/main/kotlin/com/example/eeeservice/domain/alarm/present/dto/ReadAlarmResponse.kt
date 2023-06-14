@@ -4,5 +4,5 @@ import java.time.LocalDateTime
 
 data class ReadAlarmResponse(
         val content: String,
-        val createdAt: LocalDateTime
+        val createdAt: String
 )

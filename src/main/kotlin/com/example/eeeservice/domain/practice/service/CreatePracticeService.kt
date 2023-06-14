@@ -39,6 +39,7 @@ class CreatePracticeService (
                         "$category 의 행동이 추가되었습니다"
                 )
         )
+
         val message = SimpleMailMessage()
         message.from = "moondeve41@gmail.com"
         message.setTo("moondeve41@gmail.com")
